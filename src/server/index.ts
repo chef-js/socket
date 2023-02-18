@@ -1,10 +1,16 @@
 import http, { RequestListener } from "http";
 import https from "https";
 import express, { Request, Response } from "express";
-import Cache from "chef-core/dist/cache";
+import { Cache } from "latermom";
 import { Socket, Server } from "socket.io";
 import { getPlugin } from "chef-core/dist/plugins";
-import { WSConfig, WSEvent, WSPlugin, WSServer } from "chef-core/dist/types";
+import {
+  WSConfig,
+  WSEvent,
+  WSFileReaderResponse,
+  WSPlugin,
+  WSServer,
+} from "chef-core/dist/types";
 import getUrl from "chef-core/dist/server/get-url";
 import config from "chef-core/dist/config";
 import { readFileSync } from "fs";
@@ -102,7 +108,7 @@ function createExpressServer(
   return http.createServer(app);
 }
 
-export function requestHandler(fileReaderCache: Cache) {
+export function requestHandler(fileReaderCache: Cache<WSFileReaderResponse>) {
   return (req: Request, res: Response) => {
     const url: string = getUrl(req.originalUrl);
     const { status, mime, body } = fileReaderCache.get(url);
