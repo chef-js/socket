@@ -10,10 +10,9 @@ const http_1 = __importDefault(require("http"));
 const https_1 = __importDefault(require("https"));
 const express_1 = __importDefault(require("express"));
 const socket_io_1 = require("socket.io");
-const plugins_1 = require("chef-core/dist/plugins");
-const get_url_1 = __importDefault(require("chef-core/dist/server/get-url"));
-const config_1 = __importDefault(require("chef-core/dist/config"));
 const fs_1 = require("fs");
+const config_1 = require("chef-core/config");
+const chef_core_1 = require("chef-core");
 async function createServer(config) {
   const app = (0, express_1.default)();
   const server = createExpressServer(config, app);
@@ -25,7 +24,7 @@ async function createServer(config) {
       // wait for handshake events
       socket.on(config.join, (topic) => {
         const joinEvent = { event: config.join, id, data: topic };
-        const plugin = (0, plugins_1.getPlugin)(config, topic);
+        const plugin = (0, chef_core_1.getPlugin)(config, topic);
         // check if we have such plugin
         if (plugin) {
           // socket joins room
@@ -54,7 +53,7 @@ async function createServer(config) {
               console.info(leaveEvent);
             }
             // handle leave event in plugins
-            const plugin = (0, plugins_1.getPlugin)(config, topic);
+            const plugin = (0, chef_core_1.getPlugin)(config, topic);
             plugin?.call(io, socket, leaveEvent);
           });
         }
@@ -87,9 +86,9 @@ function createExpressServer(config, app) {
 }
 function requestHandler(fileReaderCache) {
   return (req, res) => {
-    const url = (0, get_url_1.default)(req.originalUrl);
+    const url = (0, chef_core_1.getUrl)(req.originalUrl);
     const { status, mime, body } = fileReaderCache.get(url);
-    if (config_1.default.debug) {
+    if (config_1.debug) {
       console.info(status, mime, url);
     }
     // header sets content type
