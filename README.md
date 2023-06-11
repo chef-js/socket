@@ -1,6 +1,6 @@
 # chef-socket
 
-<img style="max-width: 100%;" src="https://raw.githubusercontent.com/chef-js/socket/main/chef.png" width="150" />
+<img style="max-width: 100%; float: right;" src="https://raw.githubusercontent.com/chef-js/core/main/chef.svg" alt="kisscc0" width="200" height="200" />
 
 <a href="https://badge.fury.io/js/chef-socket"><img src="https://badge.fury.io/js/chef-socket.svg" alt="npm package version" /></a> <a href="https://circleci.com/gh/chef-js/socket"><img src="https://circleci.com/gh/chef-js/socket.svg?style=shield" alt="tests status" /></a>
 
@@ -28,22 +28,10 @@ $ [PORT=4200] [yarn|npx] chef-socket folder [--debug] [--ssl] [--key example.key
 ```ts
 const startServer = require("chef-socket");
 
-startServer({
-  // this enables http/ws logs
-  debug: process.argv.includes("--debug"),
-  // port on which the server listens
-  port: Number(process.env.PORT || 4200),
-  // you can use --plugin ./path/to/plugin.js any number of times
-  plugins: {},
-  // handshake event
-  join: "/join",
-  // disconnect from room event
-  leave: "/leave",
-  // folder to static serve files
-  folder: process.argv[2],
-  // ssl = undefined | { key, cert }
-  ssl: process.argv.includes("--ssl") ? ssl : undefined,
-}).then((server: Express.Application) => {
+// see https://github.com/chef-js/core#configuration
+const config = {};
+
+startServer(config).then((server: Express.Application) => {
   // server api is get, post, any
   server.any("/*", (req: Express.Request, res: Express.Response) => {
     res.end("200 OK");
