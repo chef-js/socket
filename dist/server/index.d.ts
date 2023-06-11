@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { Cache } from "latermom";
-import { WSConfig, WSServer, WSFileReaderResponse } from "chef-core";
-export declare function createServer(config: WSConfig): Promise<WSServer>;
+import { Config, Server, FileReaderResponse } from "chef-core";
+export declare function createServer(config: Config): Promise<Server>;
 export declare function requestHandler(
-  fileReaderCache: Cache<WSFileReaderResponse>
+  fileReaderCache: Cache<FileReaderResponse>
 ): (req: Request, res: Response) => void;
 //# sourceMappingURL=index.d.ts.map
