@@ -10,6 +10,18 @@ designed for **node** written in **typescript**, with **tests**
 
 - `express` for routing (and `socket.io` for websockets)
 
+## Command-Line Running
+
+```bash
+$ npx chef-socket folder [--debug] [--ssl] [--port 443] [--plugin path/to/plugin.js]
+```
+
+## Installation
+
+```bash
+$ yarn add chef-socket
+```
+
 ## Minimal Chat Demo
 
 https://chef-js-socket.herokuapp.com/
@@ -19,17 +31,11 @@ $ yarn add chef-socket
 $ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
 ```
 
-## Running
-
-```bash
-$ [PORT=4200] [yarn|npx] chef-socket folder [--debug] [--ssl] [--key example.key] [--cert example.crt] [--plugin path/to/file.js]
-```
+Minimal configuration is specifying folder, then it serves it from http://localhost:4200
 
 ```ts
 const startServer = require("chef-socket");
-
-// see https://github.com/chef-js/core#configuration
-const config = {};
+const config = { folder: "docs" };
 
 startServer(config).then((server: Express.Application) => {
   // server api is get, post, any
@@ -39,19 +45,13 @@ startServer(config).then((server: Express.Application) => {
 });
 ```
 
-- `PORT=4200` - choose server port
-- `folder` - folder you want to serve static files from
-- `--debug` - show logs
-- `--ssl` - start as https server, with self signed certificate
-- `--key example.key` - path to real certificate key, use with `--ssl`
-- `--cert example.crt` - path to real certificate, use with `--ssl`
-- `--plugin path/to/file.js` - path to `WSPlugin`, can use multiple times
+## Configuration
 
-## Install
+For more information about config parameters read:
 
-```bash
-$ yarn add chef-socket
-```
+- The default configuration https://github.com/chef-js/core#configuration
+
+- The parameters types https://chef-js.github.io/core/types/Config.html
 
 ## Plugins
 
