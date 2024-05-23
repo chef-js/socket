@@ -78,7 +78,7 @@ function createExpressServer(config, app) {
     // start ssl app and finish
     return https_1.default.createServer(
       { key: (0, fs_1.readFileSync)(key), cert: (0, fs_1.readFileSync)(cert) },
-      app
+      app,
     );
   }
   // else start normal app

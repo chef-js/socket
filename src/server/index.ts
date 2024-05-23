@@ -1,7 +1,7 @@
 import http, { RequestListener } from "http";
 import https from "https";
 import express, { Request, Response } from "express";
-import { Cache } from "latermom";
+import { Cache } from "@pietal.dev/cache";
 import { Socket, Server as SocketServer } from "socket.io";
 import { readFileSync } from "fs";
 import { debug } from "chef-core/config";
@@ -88,7 +88,7 @@ export async function createServer(config: Config): Promise<Server> {
 
 function createExpressServer(
   config: Config,
-  app: Express.Application
+  app: Express.Application,
 ): http.Server | https.Server {
   // spread ssl from config
   const { ssl } = config;
@@ -100,7 +100,7 @@ function createExpressServer(
     // start ssl app and finish
     return https.createServer(
       { key: readFileSync(key), cert: readFileSync(cert) },
-      app as RequestListener
+      app as RequestListener,
     );
   }
 
