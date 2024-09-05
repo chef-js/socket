@@ -1,19 +1,20 @@
-import http, { RequestListener } from "http";
-import https from "https";
-import express, { Request, Response } from "express";
-import { Cache } from "@pietal.dev/cache";
-import { Socket, Server as SocketServer } from "socket.io";
-import { readFileSync } from "fs";
-import { debug } from "chef-core/config";
 import {
   Config,
-  Server,
   Event,
-  Plugin,
   FileReaderResponse,
+  Plugin,
+  Server,
   getPlugin,
   getUrl,
 } from "chef-core";
+import { Socket, Server as SocketServer } from "socket.io";
+import { debug, folder } from "chef-core/config";
+import express, { NextFunction, Request, Response } from "express";
+import http, { RequestListener } from "http";
+
+import { Cache } from "@pietal.dev/cache";
+import https from "https";
+import { readFileSync } from "fs";
 
 export async function createServer(config: Config): Promise<Server> {
   const app: Express.Application = express();
@@ -109,9 +110,19 @@ function createExpressServer(
 }
 
 export function requestHandler(fileReaderCache: Cache<FileReaderResponse>) {
-  return (req: Request, res: Response) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     const url: string = getUrl(req.originalUrl);
-    const { status, mime, body } = fileReaderCache.get(url);
+    if (!url.match(new RegExp(`/${folder}/`))) {
+      return next();
+    }
+
+    const get = fileReaderCache.get(url);
+
+    if (!get) {
+      return next();
+    }
+
+    const { status, mime, body } = get;
 
     if (debug) {
       console.info(status, mime, url);

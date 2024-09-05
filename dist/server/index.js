@@ -5,14 +5,15 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.requestHandler = exports.createServer = void 0;
+exports.createServer = createServer;
+exports.requestHandler = requestHandler;
+const chef_core_1 = require("chef-core");
+const socket_io_1 = require("socket.io");
+const config_1 = require("chef-core/config");
+const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
 const https_1 = __importDefault(require("https"));
-const express_1 = __importDefault(require("express"));
-const socket_io_1 = require("socket.io");
 const fs_1 = require("fs");
-const config_1 = require("chef-core/config");
-const chef_core_1 = require("chef-core");
 async function createServer(config) {
   const app = (0, express_1.default)();
   const server = createExpressServer(config, app);
@@ -68,7 +69,6 @@ async function createServer(config) {
   };
   return app;
 }
-exports.createServer = createServer;
 function createExpressServer(config, app) {
   // spread ssl from config
   const { ssl } = config;
@@ -85,9 +85,16 @@ function createExpressServer(config, app) {
   return http_1.default.createServer(app);
 }
 function requestHandler(fileReaderCache) {
-  return (req, res) => {
+  return (req, res, next) => {
     const url = (0, chef_core_1.getUrl)(req.originalUrl);
-    const { status, mime, body } = fileReaderCache.get(url);
+    if (!url.match(new RegExp(`/${config_1.folder}/`))) {
+      return next();
+    }
+    const get = fileReaderCache.get(url);
+    if (!get) {
+      return next();
+    }
+    const { status, mime, body } = get;
     if (config_1.debug) {
       console.info(status, mime, url);
     }
@@ -98,4 +105,3 @@ function requestHandler(fileReaderCache) {
     res.end(body);
   };
 }
-exports.requestHandler = requestHandler;

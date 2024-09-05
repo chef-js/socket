@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Config, FileReaderResponse, Server } from "chef-core";
+import { NextFunction, Request, Response } from "express";
 import { Cache } from "@pietal.dev/cache";
-import { Config, Server, FileReaderResponse } from "chef-core";
 export declare function createServer(config: Config): Promise<Server>;
 export declare function requestHandler(
   fileReaderCache: Cache<FileReaderResponse>,
-): (req: Request, res: Response) => void;
+): (req: Request, res: Response, next: NextFunction) => void;
 //# sourceMappingURL=index.d.ts.map
