@@ -1,6 +1,6 @@
 {
   "name": "chef-socket",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "keywords": [
     "chef-js",
     "server",
@@ -40,7 +40,7 @@
     "precommit": "yarn build && prettier . --write"
   },
   "dependencies": {
-    "chef-core": "^3.3.1",
+    "chef-core": "^3.3.2",
     "express": "^4.19.2",
     "socket.io": "^4.7.5"
   },

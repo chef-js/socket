@@ -114,12 +114,6 @@ export function requestHandler(
 ): (req: Request, res: Response, next: NextFunction) => boolean | void {
   return (req: Request, res: Response, next: NextFunction) => {
     const url: string = getUrl(req.originalUrl);
-    if (!url.match(new RegExp(`/${folder}/`))) {
-      next();
-
-      return false;
-    }
-
     const get = fileReaderCache.get(url);
     if (!get) {
       return next();

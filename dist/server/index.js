@@ -87,10 +87,6 @@ function createExpressServer(config, app) {
 function requestHandler(fileReaderCache) {
   return (req, res, next) => {
     const url = (0, chef_core_1.getUrl)(req.originalUrl);
-    if (!url.match(new RegExp(`/${config_1.folder}/`))) {
-      next();
-      return false;
-    }
     const get = fileReaderCache.get(url);
     if (!get) {
       return next();
