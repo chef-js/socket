@@ -109,21 +109,23 @@ function createExpressServer(
   return http.createServer(app);
 }
 
-export function requestHandler(fileReaderCache: Cache<FileReaderResponse>) {
+export function requestHandler(
+  fileReaderCache: Cache<FileReaderResponse>,
+): (req: Request, res: Response, next: NextFunction) => boolean | void {
   return (req: Request, res: Response, next: NextFunction) => {
     const url: string = getUrl(req.originalUrl);
     if (!url.match(new RegExp(`/${folder}/`))) {
-      return next();
+      next();
+
+      return false;
     }
 
     const get = fileReaderCache.get(url);
-
     if (!get) {
       return next();
     }
 
     const { status, mime, body } = get;
-
     if (debug) {
       console.info(status, mime, url);
     }
@@ -134,5 +136,7 @@ export function requestHandler(fileReaderCache: Cache<FileReaderResponse>) {
     res.writeHead(status);
 
     res.end(body);
+
+    return true;
   };
 }

@@ -4,5 +4,5 @@ import { Cache } from "@pietal.dev/cache";
 export declare function createServer(config: Config): Promise<Server>;
 export declare function requestHandler(
   fileReaderCache: Cache<FileReaderResponse>,
-): (req: Request, res: Response, next: NextFunction) => void;
+): (req: Request, res: Response, next: NextFunction) => boolean | void;
 //# sourceMappingURL=index.d.ts.map
