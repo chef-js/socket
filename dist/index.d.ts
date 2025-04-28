@@ -1,5 +1,5 @@
-import { type Config, config } from "chef-core";
-export { config, type Config };
+import { type Config, config as baseConfig } from "chef-core";
+export { baseConfig as config, type Config };
 export declare function cook(
   config?: Partial<Config>,
 ): Promise<import("chef-core").Server>;

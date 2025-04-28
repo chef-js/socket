@@ -1,6 +1,6 @@
 {
   "name": "chef-socket",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "keywords": [
     "chef-js",
     "server",
@@ -40,8 +40,10 @@
     "pretest": "yarn build",
     "test": "jest --forceExit",
     "format": "prettier . --write",
-    "precommit": "yarn test && yarn build:docs && yarn format",
-    "amend": "yarn precommit && git commit -a --am --no-edit"
+    "lint": "eslint src --fix",
+    "precommit": "yarn lint && yarn test && yarn build:docs && yarn format",
+    "amend": "yarn precommit && git commit -a --am --no-edit",
+    "upgrade": "npx npm-check-updates -u -y && yarn add express@^4 --save && yarn add @types/express@^4 -D"
   },
   "dependencies": {
     "chef-core": "^4.1.0",
