@@ -75,7 +75,7 @@ describe("GIVEN chef is provided", () => {
 
       startChef({
         folder: "demo",
-        port: 4200,
+        port: 3000,
         plugins: {
           chat: function () {
             done();
@@ -83,7 +83,7 @@ describe("GIVEN chef is provided", () => {
         },
       }).then(() => {
         const io = require("socket.io-client");
-        const socket = new io("ws://localhost:4200", {
+        const socket = new io("ws://localhost:3000", {
           transports: ["websocket"],
         });
 

@@ -24,14 +24,14 @@ $ yarn add chef-socket
 
 ## Minimal Chat Demo
 
-https://chef-js-socket.herokuapp.com/
+https://chef-socket.pietal.dev/
 
 ```bash
 $ yarn add chef-socket
 $ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
 ```
 
-Minimal configuration is specifying folder, then it serves it from http://localhost:4200
+Minimal configuration is specifying folder, then it serves it from http://localhost:3000
 
 ```ts
 const startServer = require("chef-socket");
