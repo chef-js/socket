@@ -9,9 +9,9 @@ exports.createServer = createServer;
 exports.requestHandler = requestHandler;
 const chef_core_1 = require("chef-core");
 const socket_io_1 = require("socket.io");
-const config_1 = require("chef-core/config");
 const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
+const config_1 = require("chef-core/config");
 const https_1 = __importDefault(require("https"));
 const fs_1 = require("fs");
 async function createServer(config) {

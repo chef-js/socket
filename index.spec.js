@@ -7,22 +7,22 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN it is instantiated", () => {
     it("THEN it should initialize without throwing error", () => {
-      const startChef = require(".");
+      const { cook } = require(".");
 
-      expect(() => startChef({ folder: "demo", port: 3001 })).not.toThrow();
+      expect(() => cook({ folder: "demo", port: 3001 })).not.toThrow();
     });
 
     it("THEN initialization should return a truthy instance", async () => {
-      const startChef = require(".");
+      const { cook } = require(".");
 
-      expect(await startChef({ folder: "demo", port: 3002 })).toBeTruthy();
+      expect(await cook({ folder: "demo", port: 3002 })).toBeTruthy();
     });
   });
 
   describe("WHEN chef is initialized in ssl mode", () => {
     it("THEN it should not throw error", async () => {
-      const startChef = require(".");
-      const api = await startChef({
+      const { cook } = require(".");
+      const api = await cook({
         debug: true,
         ssl: {
           key: "node_modules/chef-core/ssl/example.key",
@@ -38,8 +38,8 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized in debug mode", () => {
     it("THEN it should not throw error", async () => {
-      const startChef = require(".");
-      const api = await startChef({
+      const { cook } = require(".");
+      const api = await cook({
         folder: "demo",
         debug: true,
         port: 3003,
@@ -51,9 +51,9 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is run on demo folder", () => {
     it("THEN it should not throw error", async () => {
-      const startChef = require(".");
+      const { cook } = require(".");
       const test = async () =>
-        await startChef({ debug: true, folder: "demo", port: 3004 });
+        await cook({ debug: true, folder: "demo", port: 3004 });
 
       expect(test).not.toThrow();
     });
@@ -61,8 +61,8 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized on specified port", () => {
     it("THEN it should start without error", async () => {
-      const startChef = require(".");
-      const server = await startChef({ folder: "demo", port: 8080 });
+      const { cook } = require(".");
+      const server = await cook({ folder: "demo", port: 8080 });
 
       expect(server).toBeTruthy();
     });
@@ -70,10 +70,9 @@ describe("GIVEN chef is provided", () => {
 
   describe("WHEN chef is initialized with plugin", () => {
     it("THEN it should start without error", (done) => {
-      const startChef = require(".");
-      const config = require("chef-core/config");
+      const { cook, config } = require(".");
 
-      startChef({
+      cook({
         folder: "demo",
         port: 3000,
         plugins: {

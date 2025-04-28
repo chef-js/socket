@@ -8,11 +8,11 @@ import {
   getUrl,
 } from "chef-core";
 import { Socket, Server as SocketServer } from "socket.io";
-import { debug, folder } from "chef-core/config";
 import express, { NextFunction, Request, Response } from "express";
 import http, { RequestListener } from "http";
 
 import { Cache } from "@pietal.dev/cache";
+import { debug } from "chef-core/config";
 import https from "https";
 import { readFileSync } from "fs";
 

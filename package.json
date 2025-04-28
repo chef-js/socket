@@ -1,6 +1,6 @@
 {
   "name": "chef-socket",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "keywords": [
     "chef-js",
     "server",
@@ -18,7 +18,7 @@
     "websockets"
   ],
   "description": "chef-js + express + socket.io = static files server + websockets",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
     "chef-socket": "./bin/chef-socket"
@@ -33,23 +33,31 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "start": "bin/chef-socket demo --plugin node_modules/chef-core/chat.js",
     "prebuild": "rm -rf dist",
     "build": "tsc",
+    "build:docs": "typedoc",
+    "pretest": "yarn build",
     "test": "jest --forceExit",
-    "start": "bin/chef-socket demo --plugin node_modules/chef-core/chat.js",
-    "precommit": "yarn build && prettier . --write"
+    "format": "prettier . --write",
+    "precommit": "yarn test && yarn build:docs && yarn format",
+    "amend": "yarn precommit && git commit -a --am --no-edit"
   },
   "dependencies": {
-    "chef-core": "^4.0.1",
-    "express": "^5.1.0",
+    "chef-core": "^4.1.0",
+    "express": "^4",
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.25.1",
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.3",
+    "eslint": "^9.25.1",
     "jest": "^29.7.0",
     "prettier": "^3.5.3",
     "socket.io-client": "^4.8.1",
-    "typescript": "^5.8.3"
+    "typedoc": "^0.28.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
   }
 }

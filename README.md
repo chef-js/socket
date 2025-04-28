@@ -34,10 +34,10 @@ $ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core
 Minimal configuration is specifying folder, then it serves it from http://localhost:3000
 
 ```ts
-const startServer = require("chef-socket");
+const { cook } = require("chef-socket");
 const config = { folder: "docs" };
 
-startServer(config).then((server: Express.Application) => {
+cook(config).then((server: Express.Application) => {
   // server api is get, post, any
   server.any("/*", (req: Express.Request, res: Express.Response) => {
     res.end("200 OK");
