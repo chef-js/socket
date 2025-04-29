@@ -247,7 +247,7 @@
     "@babel/parser" "^7.27.0"
     "@babel/types" "^7.27.0"
 
-"@babel/traverse@>=7.23.2", "@babel/traverse@^7.25.9", "@babel/traverse@^7.26.10":
+"@babel/traverse@^7.25.9", "@babel/traverse@^7.26.10":
   version "7.27.0"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.27.0.tgz#11d7e644779e166c0442f9a07274d02cd91d4a70"
   integrity sha512-19lYZFzYVQkkHkl4Cy4WrAVcqBkgvV2YM2TU3xG6DIwO7O3ecbDPfW3yM3bjAGcqcQHi+CCtjMR3dIEHxsd6bA==
@@ -1234,12 +1234,11 @@ char-regex@^1.0.2:
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
   integrity sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==
 
-chef-core@^4.1.7:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/chef-core/-/chef-core-4.1.7.tgz#75615d8f53b55909adc628879c9fd4bad2f26f4e"
-  integrity sha512-R+V+x1eyI3Rkm/qNreaUU7wNcsE4hbkQk0i2kYdVI8xPRQLNxjrYUmV1Ml01CJbtfyHiZWUO+e2SK0hKPsQ1kw==
+chef-core@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/chef-core/-/chef-core-4.1.8.tgz#370ade0f4012041aee65219580dd5313f1d9abb6"
+  integrity sha512-1beD0ktKcxHV9J6djlhL/vo2zEjxXKWWDkhxKvl96nWyKxfWFaaTpUZHvVBBSy5RNYU7LkPOomSryzvytanfuQ==
   dependencies:
-    "@babel/traverse" ">=7.23.2"
     "@pietal.dev/cache" "^2.0.2"
     mime-types "^3.0.1"
 
