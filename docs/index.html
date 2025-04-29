@@ -121,18 +121,6 @@
             <li><code>express</code> for routing</li>
             <li><code>socket.io</code> for websockets</li>
           </ul>
-          <h2 id="command-line" class="tsd-anchor-link">
-            Command-Line<a
-              href="#command-line"
-              aria-label="Permalink"
-              class="tsd-anchor-icon"
-              ><svg viewBox="0 0 24 24" aria-hidden="true">
-                <use href="assets/icons.svg#icon-anchor"></use></svg
-            ></a>
-          </h2>
-          <pre><code class="bash"><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">npx</span><span class="hl-1"> </span><span class="hl-2">chef-socket</span><span class="hl-1"> </span><span class="hl-2">folder</span><span class="hl-1"> [--debug] [--ssl] [--port 443] [--plugin path/to/plugin.js]</span>
-</code><button type="button">Copy</button></pre>
-
           <h2 id="chat-demo" class="tsd-anchor-link">
             Chat Demo<a
               href="#chat-demo"
@@ -147,25 +135,58 @@
               >https://chef-socket.pietal.dev/</a
             >
           </p>
-          <p>to have the same demo run locally just do</p>
-          <pre><code class="bash"><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">chef-socket</span><br/><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">chef-socket</span><span class="hl-1"> </span><span class="hl-2">node_modules/chef-socket/demo</span><span class="hl-1"> </span><span class="hl-3">--plugin</span><span class="hl-1"> </span><span class="hl-2">node_modules/chef-core/chat.js</span>
+          <h3 id="chat-using-cli" class="tsd-anchor-link">
+            Chat using CLI<a
+              href="#chat-using-cli"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h3>
+          <pre><code class="bash"><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">chef-socket</span><br/><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">chef-socket</span><span class="hl-1"> </span><span class="hl-2">node_modules/chef-socket/demo</span><span class="hl-1"> </span><span class="hl-3">--plugin</span><span class="hl-1"> </span><span class="hl-2">node_modules/chef-socket/chat.js</span>
 </code><button type="button">Copy</button></pre>
 
-          <h2 id="using-as-a-library" class="tsd-anchor-link">
-            Using as a library<a
-              href="#using-as-a-library"
+          <h3 id="chat-using-nodejs" class="tsd-anchor-link">
+            Chat using node.js<a
+              href="#chat-using-nodejs"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h3>
+          <pre><code class="ts"><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">cook</span><span class="hl-1">, </span><span class="hl-4">chat</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">&quot;chef-socket&quot;</span><span class="hl-1">);</span><br/><br/><span class="hl-0">cook</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-5">folder:</span><span class="hl-1"> </span><span class="hl-2">&quot;node_modules/chef-socket/demo&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">plugins:</span><span class="hl-1"> { </span><span class="hl-5">chat</span><span class="hl-1"> },</span><br/><span class="hl-1">}).</span><span class="hl-0">then</span><span class="hl-1">((</span><span class="hl-5">server</span><span class="hl-1">) </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-5">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-5">server</span><span class="hl-1">.</span><span class="hl-5">config</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
+</code><button type="button">Copy</button></pre>
+
+          <h2 id="serve-folder-cli" class="tsd-anchor-link">
+            Serve folder CLI<a
+              href="#serve-folder-cli"
               aria-label="Permalink"
               class="tsd-anchor-icon"
               ><svg viewBox="0 0 24 24" aria-hidden="true">
                 <use href="assets/icons.svg#icon-anchor"></use></svg
             ></a>
           </h2>
-          <pre><code class="ts"><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">cook</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">&quot;chef-socket&quot;</span><span class="hl-1">);</span><br/><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">config</span><span class="hl-1"> = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">&quot;./your-config&quot;</span><span class="hl-1">);</span><br/><br/><span class="hl-0">cook</span><span class="hl-1">(</span><span class="hl-5">config</span><span class="hl-1">).</span><span class="hl-0">then</span><span class="hl-1">((</span><span class="hl-5">server</span><span class="hl-1">: </span><span class="hl-6">Express</span><span class="hl-1">.</span><span class="hl-6">Application</span><span class="hl-1">) </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-7">// server api is get, post, any</span><br/><span class="hl-1">  </span><span class="hl-5">server</span><span class="hl-1">.</span><span class="hl-0">any</span><span class="hl-1">(</span><span class="hl-2">&quot;/*&quot;</span><span class="hl-1">, (</span><span class="hl-5">req</span><span class="hl-1">: </span><span class="hl-6">Express</span><span class="hl-1">.</span><span class="hl-6">Request</span><span class="hl-1">, </span><span class="hl-5">res</span><span class="hl-1">: </span><span class="hl-6">Express</span><span class="hl-1">.</span><span class="hl-6">Response</span><span class="hl-1">) </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-5">res</span><span class="hl-1">.</span><span class="hl-0">end</span><span class="hl-1">(</span><span class="hl-2">&quot;200 OK&quot;</span><span class="hl-1">);</span><br/><span class="hl-1">  });</span><br/><span class="hl-1">});</span>
+          <pre><code class="bash"><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">npx</span><span class="hl-1"> </span><span class="hl-2">chef-socket</span><span class="hl-1"> </span><span class="hl-2">folder</span><span class="hl-1"> [--plugin </span><span class="hl-2">node_modules/chef-socket/chat.js]</span>
+</code><button type="button">Copy</button></pre>
+
+          <h2 id="serve-folder-nodejs" class="tsd-anchor-link">
+            Serve folder node.js<a
+              href="#serve-folder-nodejs"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <pre><code class="ts"><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">cook</span><span class="hl-1"> } = </span><span class="hl-0">require</span><span class="hl-1">(</span><span class="hl-2">&quot;chef-socket&quot;</span><span class="hl-1">);</span><br/><br/><span class="hl-0">cook</span><span class="hl-1">({ </span><span class="hl-5">folder:</span><span class="hl-1"> </span><span class="hl-2">&quot;folder&quot;</span><span class="hl-1"> }).</span><span class="hl-0">then</span><span class="hl-1">((</span><span class="hl-5">server</span><span class="hl-1">: </span><span class="hl-6">Express</span><span class="hl-1">.</span><span class="hl-6">Application</span><span class="hl-1">) </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-7">// server api is get, post, any</span><br/><span class="hl-1">  </span><span class="hl-5">server</span><span class="hl-1">.</span><span class="hl-0">any</span><span class="hl-1">(</span><span class="hl-2">&quot;/*&quot;</span><span class="hl-1">, (</span><span class="hl-5">req</span><span class="hl-1">: </span><span class="hl-6">Express</span><span class="hl-1">.</span><span class="hl-6">Request</span><span class="hl-1">, </span><span class="hl-5">res</span><span class="hl-1">: </span><span class="hl-6">Express</span><span class="hl-1">.</span><span class="hl-6">Response</span><span class="hl-1">) </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-5">res</span><span class="hl-1">.</span><span class="hl-0">end</span><span class="hl-1">(</span><span class="hl-2">&quot;200 OK&quot;</span><span class="hl-1">);</span><br/><span class="hl-1">  });</span><br/><span class="hl-1">});</span>
 </code><button type="button">Copy</button></pre>
 
           <ul>
             <li>
-              minimal configuration is zero configuration (<code>{}</code>)
+              minimal configuration is zero configuration, all values have
+              defaults
             </li>
             <li>
               if <code>folder</code> param is omitted default
@@ -317,9 +338,9 @@
               context (<code>this</code>) of each plugin is the
               <code>server</code> instance.
             </li>
-            <li>plugins receive (and send) the data in the format of:</li>
+            <li>plugins receive and send the events in the format of:</li>
           </ul>
-          <pre><code class="ts"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-5">id</span><span class="hl-1">,    </span><span class="hl-7">// WebSocket id - this is automatically added</span><br/><span class="hl-1">  </span><span class="hl-5">event</span><span class="hl-1">, </span><span class="hl-7">// event name as string</span><br/><span class="hl-1">  </span><span class="hl-5">data</span><span class="hl-1">,  </span><span class="hl-7">// any data accompanying the event</span><br/><span class="hl-1">}</span>
+          <pre><code class="ts"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-6">Event</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-5">id</span><span class="hl-1">: </span><span class="hl-6">string</span><span class="hl-1">;      </span><span class="hl-7">// socket gains unique id on connection</span><br/><span class="hl-1">  </span><span class="hl-5">event</span><span class="hl-1">: </span><span class="hl-6">string</span><span class="hl-1">;   </span><span class="hl-7">// event name to send in frontend/receive in backend</span><br/><span class="hl-1">  </span><span class="hl-5">data</span><span class="hl-1">?: </span><span class="hl-6">any</span><span class="hl-1">;      </span><span class="hl-7">// defaults to undefined, can be serializable primitive or JSON</span><br/><span class="hl-1">}</span>
 </code><button type="button">Copy</button></pre>
 
           <h2 id="license" class="tsd-anchor-link">
@@ -483,18 +504,28 @@
               >
               <ul>
                 <li>
-                  <a href="#command-line"
-                    ><span>Command-<wbr />Line</span></a
-                  >
-                </li>
-                <li>
                   <a href="#chat-demo"
                     ><span>Chat <wbr />Demo</span></a
                   >
                 </li>
                 <li>
-                  <a href="#using-as-a-library"
-                    ><span>Using as a library</span></a
+                  <ul>
+                    <li>
+                      <a href="#chat-using-cli"><span>Chat using CLI</span></a>
+                    </li>
+                    <li>
+                      <a href="#chat-using-nodejs"
+                        ><span>Chat using node.js</span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#serve-folder-cli"><span>Serve folder CLI</span></a>
+                </li>
+                <li>
+                  <a href="#serve-folder-nodejs"
+                    ><span>Serve folder node.js</span></a
                   >
                 </li>
                 <li>

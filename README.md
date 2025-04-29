@@ -20,13 +20,13 @@ https://chef-socket.pietal.dev/
 
 ```bash
 $ yarn add chef-socket
-$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
+$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-socket/chat.js
 ```
 
 ### Chat using node.js
 
 ```ts
-const { cook, chat } = require("chef-socket"); // or chef-uws
+const { cook, chat } = require("chef-socket");
 
 cook({
   folder: "node_modules/chef-socket/demo",
