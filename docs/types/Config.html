@@ -93,6 +93,12 @@
           <span class="tsd-signature-symbol">=</span>
           <span class="tsd-signature-symbol">{</span><br />    <a
             class="tsd-kind-property"
+            href="#cache"
+            >cache</a
+          ><span class="tsd-signature-symbol">:</span>
+          <span class="tsd-signature-type">number</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
             href="#debug"
             >debug</a
           ><span class="tsd-signature-symbol">:</span>
@@ -115,12 +121,6 @@
             >leave</a
           ><span class="tsd-signature-symbol">:</span>
           <span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol">;</span><br />    <a
-            class="tsd-kind-property"
-            href="#maxcachesize"
-            >maxCacheSize</a
-          ><span class="tsd-signature-symbol">:</span>
-          <span class="tsd-signature-type">number</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
             href="#plugins"
@@ -150,7 +150,7 @@
             class="tsd-kind-property"
             href="#ssl"
             >ssl</a
-          ><span class="tsd-signature-symbol">?:</span>
+          ><span class="tsd-signature-symbol">:</span>
           <span class="tsd-signature-symbol">{</span>
           <span class="tsd-kind-property">cert</span
           ><span class="tsd-signature-symbol">:</span>
@@ -159,7 +159,9 @@
           <span class="tsd-kind-property">key</span
           ><span class="tsd-signature-symbol">:</span>
           <span class="tsd-signature-type">string</span>
-          <span class="tsd-signature-symbol">}</span
+          <span class="tsd-signature-symbol">}</span>
+          <span class="tsd-signature-symbol">|</span>
+          <span class="tsd-signature-type">null</span
           ><span class="tsd-signature-symbol">;</span><br />    <a
             class="tsd-kind-property"
             href="#type"
@@ -207,6 +209,15 @@
                 <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
+                    <a href="#cache" class="tsd-index-link"
+                      ><svg
+                        class="tsd-kind-icon"
+                        viewBox="0 0 24 24"
+                        aria-label="Property"
+                      >
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>cache</span></a
+                    >
                     <a href="#debug" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
@@ -243,15 +254,6 @@
                         <use href="../assets/icons.svg#icon-1024"></use></svg
                       ><span>leave</span></a
                     >
-                    <a href="#maxcachesize" class="tsd-index-link"
-                      ><svg
-                        class="tsd-kind-icon"
-                        viewBox="0 0 24 24"
-                        aria-label="Property"
-                      >
-                        <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>max<wbr />Cache<wbr />Size</span></a
-                    >
                     <a href="#plugins" class="tsd-index-link"
                       ><svg
                         class="tsd-kind-icon"
@@ -286,7 +288,7 @@
                         aria-label="Property"
                       >
                         <use href="../assets/icons.svg#icon-1024"></use></svg
-                      ><span>ssl?</span></a
+                      ><span>ssl</span></a
                     >
                     <a href="#type" class="tsd-index-link"
                       ><svg
@@ -317,6 +319,31 @@
             <h2>Properties</h2>
           </summary>
           <section>
+            <section class="tsd-panel tsd-member">
+              <h3 class="tsd-anchor-link" id="cache">
+                <span>cache</span
+                ><a href="#cache" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">cache</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">number</span>
+              </div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/chef-js/core/blob/main/dist/types.d.ts#L100"
+                      >core/dist/types.d.ts:100</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
             <section class="tsd-panel tsd-member">
               <h3 class="tsd-anchor-link" id="debug">
                 <span>debug</span
@@ -421,34 +448,6 @@
               </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <h3 class="tsd-anchor-link" id="maxcachesize">
-                <span>max<wbr />Cache<wbr />Size</span
-                ><a
-                  href="#maxcachesize"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true">
-                    <use href="../assets/icons.svg#icon-anchor"></use></svg
-                ></a>
-              </h3>
-              <div class="tsd-signature">
-                <span class="tsd-kind-property">maxCacheSize</span
-                ><span class="tsd-signature-symbol">:</span>
-                <span class="tsd-signature-type">number</span>
-              </div>
-              <aside class="tsd-sources">
-                <ul>
-                  <li>
-                    Defined in
-                    <a
-                      href="https://github.com/chef-js/core/blob/main/dist/types.d.ts#L100"
-                      >core/dist/types.d.ts:100</a
-                    >
-                  </li>
-                </ul>
-              </aside>
-            </section>
-            <section class="tsd-panel tsd-member">
               <h3 class="tsd-anchor-link" id="plugins">
                 <span>plugins</span
                 ><a
@@ -535,7 +534,7 @@
             </section>
             <section class="tsd-panel tsd-member">
               <h3 class="tsd-anchor-link" id="ssl">
-                <code class="tsd-tag">Optional</code><span>ssl</span
+                <span>ssl</span
                 ><a href="#ssl" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24" aria-hidden="true">
                     <use href="../assets/icons.svg#icon-anchor"></use></svg
@@ -543,7 +542,7 @@
               </h3>
               <div class="tsd-signature">
                 <span class="tsd-kind-property">ssl</span
-                ><span class="tsd-signature-symbol">?:</span>
+                ><span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-symbol">{</span>
                 <span class="tsd-kind-property">cert</span
                 ><span class="tsd-signature-symbol">:</span>
@@ -553,6 +552,8 @@
                 ><span class="tsd-signature-symbol">:</span>
                 <span class="tsd-signature-type">string</span>
                 <span class="tsd-signature-symbol">}</span>
+                <span class="tsd-signature-symbol">|</span>
+                <span class="tsd-signature-type">null</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
@@ -760,7 +761,15 @@
                   >Properties
                 </summary>
                 <div>
-                  <a href="#debug"
+                  <a href="#cache"
+                    ><svg
+                      class="tsd-kind-icon"
+                      viewBox="0 0 24 24"
+                      aria-label="Property"
+                    >
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>cache</span></a
+                  ><a href="#debug"
                     ><svg
                       class="tsd-kind-icon"
                       viewBox="0 0 24 24"
@@ -792,14 +801,6 @@
                     >
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>leave</span></a
-                  ><a href="#maxcachesize"
-                    ><svg
-                      class="tsd-kind-icon"
-                      viewBox="0 0 24 24"
-                      aria-label="Property"
-                    >
-                      <use href="../assets/icons.svg#icon-1024"></use></svg
-                    ><span>max<wbr />Cache<wbr />Size</span></a
                   ><a href="#plugins"
                     ><svg
                       class="tsd-kind-icon"

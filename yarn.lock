@@ -1234,10 +1234,10 @@ char-regex@^1.0.2:
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
   integrity sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==
 
-chef-core@^4.1.9:
-  version "4.1.9"
-  resolved "https://registry.yarnpkg.com/chef-core/-/chef-core-4.1.9.tgz#c8dce7b4788c123d0f2a261e527075765034b4ef"
-  integrity sha512-HqkPXP0H2mnC7PO0uG3GzM49PT3hhG6bg0fcL+nOpmDORXN31CveRo5R3eYYvMKidWwWNat8QQre4WdZOF1mxw==
+chef-core@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/chef-core/-/chef-core-4.2.0.tgz#04cd4c1beee8636364816d3e1428ffac3a16efb9"
+  integrity sha512-HKOQJB8Xai2MrU4ltpdEk6b1czYI3MU3CPNo87h/nB2erZRCSJrE65Rzki5msqFpKJBSN40BwyLtctqRrsI0/g==
   dependencies:
     "@pietal.dev/cache" "^2.0.2"
     mime-types "^3.0.1"

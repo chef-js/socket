@@ -1,6 +1,6 @@
 {
   "name": "chef-socket",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "static files server + websockets = chef-socket",
   "keywords": [
     "chef-js",
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@pietal.dev/cache": "^2.0.2",
-    "chef-core": "^4.1.9",
+    "chef-core": "^4.2.0",
     "express": "^4",
     "socket.io": "^4.8.1"
   },
