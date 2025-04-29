@@ -36,7 +36,7 @@ cook(config).then((server: Express.Application) => {
 - if `folder` param is omitted default `index.html` is read from `folder = '.'`
 - serves from http://localhost:3000 unless `port` specified
 
-### Chat Demo
+## Chat Demo
 
 https://chef-socket.pietal.dev/
 
