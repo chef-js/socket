@@ -104,13 +104,13 @@ at the **same port** as the **files server** too. **One** client may be in **man
 - it is called **each time** the frontend websocket emits to server
 - you have to handle first join etc. yourself
 - context (`this`) of each plugin is the `server` instance.
-- plugins receive (and send) the data in the format of:
+- plugins receive and send the events in the format of:
 
-```json5
-{
-  id,    // WebSocket id - this is automatically added
-  event, // event name as string
-  data,  // any data accompanying the event
+```ts
+type Event = {
+  id: string;      // socket gains unique id on connection
+  event: string;   // event name to send in frontend/receive in backend
+  data?: any;      // defaults to undefined, can be serializable primitive or JSON
 }
 ```
 
