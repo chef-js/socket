@@ -4,38 +4,35 @@
 
 <a href="https://badge.fury.io/js/chef-socket"><img src="https://badge.fury.io/js/chef-socket.svg" alt="npm package version" /></a> <a href="https://circleci.com/gh/chef-js/socket"><img src="https://circleci.com/gh/chef-js/socket.svg" alt="tests status" /></a>
 
-**web-sockets** micro-service manager and **static files server** at the same port,
+**static files server** designed for **node** written in **typescript**, with **tests**
 
-designed for **node** written in **typescript**, with **tests**
+with **web-sockets** micro-service manager, at the **same port**
 
-- `express` for routing (and `socket.io` for websockets)
+- `express` for routing
+- `socket.io` for websockets
 
-## Command-Line Running
+## Command-Line
 
 ```bash
 $ npx chef-socket folder [--debug] [--ssl] [--port 443] [--plugin path/to/plugin.js]
 ```
 
-## Installation
-
-```bash
-$ yarn add chef-socket
-```
-
-## Minimal Chat Demo
+## Chat Demo
 
 https://chef-socket.pietal.dev/
+
+to have the same demo run locally just do
 
 ```bash
 $ yarn add chef-socket
 $ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
 ```
 
-Minimal configuration is specifying folder, then it serves it from http://localhost:3000
+## Using as a library
 
 ```ts
 const { cook } = require("chef-socket");
-const config = { folder: "docs" };
+const config = require("./your-config");
 
 cook(config).then((server: Express.Application) => {
   // server api is get, post, any
@@ -44,6 +41,10 @@ cook(config).then((server: Express.Application) => {
   });
 });
 ```
+
+- minimal configuration is zero configuration (`{}`)
+- if `folder` param is omitted default `index.html` is read from `folder = '.'`
+- serves from http://localhost:3000 unless `port` specified
 
 ## Configuration
 
@@ -87,7 +88,9 @@ at the **same port** as the **files server** too. **One** client may be in **man
 
 ## API
 
-- a plugin is a function `(ws, { id, event, data })` that is called **each time** the frontend websocket emits to server
+- a plugin is a function `(ws, { id, event, data })`
+- it is called **each time** the frontend websocket emits to server
+- you have to handle first join etc. yourself
 - context (`this`) of each plugin is the `server` instance.
 - plugins receive (and send) the data in the format of:
 
