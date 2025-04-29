@@ -1,6 +1,6 @@
 {
   "name": "chef-socket",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "keywords": [
     "chef-js",
     "server",
@@ -46,7 +46,7 @@
     "up": "npx npm-check-updates -u && yarn -f && yarn upgrade && yarn add express@^4 --save && yarn add @types/express@^4 -D"
   },
   "dependencies": {
-    "chef-core": "^4.1.6",
+    "chef-core": "^4.1.7",
     "express": "^4",
     "socket.io": "^4.8.1"
   },

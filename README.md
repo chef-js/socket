@@ -3,7 +3,7 @@
 <img style="max-width: 100%; float: right;" src="https://raw.githubusercontent.com/chef-js/core/main/chef.svg" alt="kisscc0" width="200" height="200" />
 
 [<img src="https://img.shields.io/npm/v/chef-socket?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/chef-socket?activeTab=versions)
-[<img src="https://img.shields.io/circleci/build/github/Prozi/chef-socket/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/Prozi/chef-socket)
+[<img src="https://img.shields.io/circleci/build/github/chef-js/socket/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/chef-js/socket)
 
 **static files server** designed for **node** written in **typescript**, with **tests**
 
