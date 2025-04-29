@@ -15,7 +15,7 @@ with **web-sockets** micro-service manager, at the **same port**
 ## Using CLI
 
 ```bash
-$ npx chef-socket folder
+$ npx chef-socket folder [--plugin node_modules/chef-socket/chat.js]
 ```
 
 ## Using as a library
