@@ -51,7 +51,6 @@ cook(config).then((server: Express.Application) => {
 For more information about config parameters read:
 
 - The default configuration https://github.com/chef-js/core#configuration
-
 - The parameters types https://chef-js.github.io/core/types/Config.html
 
 ## Plugins
