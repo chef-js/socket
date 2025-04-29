@@ -22,9 +22,8 @@ $ npx chef-socket folder
 
 ```ts
 const { cook } = require("chef-socket");
-const { folder: "folder" }
 
-cook(config).then((server: Express.Application) => {
+cook({ folder: "folder" }).then((server: Express.Application) => {
   // server api is get, post, any
   server.any("/*", (req: Express.Request, res: Express.Response) => {
     res.end("200 OK");
