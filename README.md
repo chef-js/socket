@@ -12,28 +12,17 @@ with **web-sockets** micro-service manager, at the **same port**
 - `express` for routing
 - `socket.io` for websockets
 
-## Command-Line
+## Using CLI
 
 ```bash
-$ npx chef-socket folder [--debug] [--ssl] [--port 443] [--plugin path/to/plugin.js]
-```
-
-## Chat Demo
-
-https://chef-socket.pietal.dev/
-
-to have the same demo run locally just do
-
-```bash
-$ yarn add chef-socket
-$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
+$ npx chef-socket folder
 ```
 
 ## Using as a library
 
 ```ts
 const { cook } = require("chef-socket");
-const config = require("./your-config");
+const { folder: "folder" }
 
 cook(config).then((server: Express.Application) => {
   // server api is get, post, any
@@ -43,9 +32,33 @@ cook(config).then((server: Express.Application) => {
 });
 ```
 
-- minimal configuration is zero configuration (`{}`)
+- minimal configuration is zero configuration, all values have defaults
 - if `folder` param is omitted default `index.html` is read from `folder = '.'`
 - serves from http://localhost:3000 unless `port` specified
+
+### Chat Demo
+
+https://chef-socket.pietal.dev/
+
+### Chat using CLI
+
+```bash
+$ yarn add chef-socket
+$ yarn chef-socket node_modules/chef-socket/demo --plugin node_modules/chef-core/chat.js
+```
+
+### Chat using as a library
+
+```ts
+const { cook, chat } = require("chef-socket"); // or chef-uws
+
+cook({
+  folder: "node_modules/chef-socket/demo",
+  plugins: { chat },
+}).then((server) => {
+  console.log(server.config);
+});
+```
 
 ## Configuration
 
