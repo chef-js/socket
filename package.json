@@ -1,6 +1,6 @@
 {
   "name": "chef-socket",
-  "version": "3.3.0",
+  "version": "3.3.2",
   "description": "static files server + websockets = chef-socket",
   "keywords": [
     "chef-js",
@@ -51,20 +51,20 @@
   },
   "dependencies": {
     "@pietal.dev/cache": "^2.0.2",
-    "chef-core": "^4.2.0",
+    "chef-core": "^4.2.1",
     "express": "^4",
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.1",
+    "@eslint/js": "^9.26.0",
     "@types/express": "^4",
-    "@types/node": "^22.15.3",
-    "eslint": "^9.25.1",
+    "@types/node": "^22.15.13",
+    "eslint": "^9.26.0",
     "jest": "^29.7.0",
     "prettier": "^3.5.3",
     "socket.io-client": "^4.8.1",
-    "typedoc": "^0.28.3",
+    "typedoc": "^0.28.4",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.1"
+    "typescript-eslint": "^8.32.0"
   }
 }
