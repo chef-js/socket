@@ -21,7 +21,7 @@ export async function createServer(config: Config): Promise<Server> {
   const server: http.Server | https.Server = createExpressServer(config, app);
 
   if (Object.keys(config.plugins).length) {
-    const io = new SocketServer(server);
+    const io = new SocketServer(server, { transports: ["websocket"] });
 
     // when there is a connection from new user socket
     io.on("connection", (socket: Socket) => {

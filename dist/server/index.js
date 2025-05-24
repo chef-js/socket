@@ -18,7 +18,7 @@ async function createServer(config) {
   const app = (0, express_1.default)();
   const server = createExpressServer(config, app);
   if (Object.keys(config.plugins).length) {
-    const io = new socket_io_1.Server(server);
+    const io = new socket_io_1.Server(server, { transports: ["websocket"] });
     // when there is a connection from new user socket
     io.on("connection", (socket) => {
       const id = socket.id;
